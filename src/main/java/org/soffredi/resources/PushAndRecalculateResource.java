@@ -22,6 +22,7 @@ public class PushAndRecalculateResource {
         final Calculator cal = Calculator.getInstance();
         cal.push(inputNumber.getNumber());
 
-        return new AvgAndDev(cal.getAvg(), 0);
+        // return new AvgAndDev(cal.getAvg(), cal.getStdDev());
+        return new AvgAndDev(cal.getMean(), cal.getStdDev());
     }
 }

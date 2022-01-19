@@ -8,3 +8,11 @@ Decisions
 2. Keeping API endpoints simple for the sake of time (following API Names on requirements)
 3. Output will be a JSON object
 4. API will be a standard REST API
+
+Running instructions
+
+The application requires Java 1.8+ and Maven 4.0+
+
+Build the application package with: mvn package
+
+Run the application with: java -jar target/crypto-service-1.0-SNAPSHOT.jar server config.yml
