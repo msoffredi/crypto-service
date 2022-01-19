@@ -1,6 +1,9 @@
 package org.soffredi.core;
 
+import javax.validation.constraints.NotNull;
+
 public class InputNumber {
+    @NotNull
     private int number;
 
     public InputNumber() {

@@ -1,6 +1,5 @@
 package org.soffredi.resources;
 
-// import javax.ws.rs.Consumes;
 import javax.validation.Valid;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -10,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 
 import org.soffredi.api.AvgAndDev;
+import org.soffredi.core.Calculator;
 import org.soffredi.core.InputNumber;
 
 @Path("/push-and-recalculate")
@@ -18,8 +18,10 @@ public class PushAndRecalculateResource {
 
     @POST
     @Timed
-    // @Consumes(MediaType.APPLICATION_JSON)
     public AvgAndDev pushAndRecalculate(@Valid InputNumber inputNumber) {
-        return new AvgAndDev(inputNumber.getNumber(), 0);
+        final Calculator cal = Calculator.getInstance();
+        cal.push(inputNumber.getNumber());
+
+        return new AvgAndDev(cal.getAvg(), 0);
     }
 }
