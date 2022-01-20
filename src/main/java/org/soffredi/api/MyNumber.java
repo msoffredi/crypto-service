@@ -1,8 +1,11 @@
 package org.soffredi.api;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MyNumber {
+    @NotNull
     private double number;
 
     public MyNumber() {

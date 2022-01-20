@@ -17,10 +17,16 @@ public class MyNumberTest {
     @Test
     public void serializesToJSON() throws Exception {
         final MyNumber myNumber = new MyNumber(NUMBER);
-        final String expected = 
-            MAPPER.writeValueAsString(
-                MAPPER.readValue(fixture(DEC_NUM_JSON), MyNumber.class)
-                );
+        final String expected = MAPPER.writeValueAsString(
+                MAPPER.readValue(fixture(DEC_NUM_JSON), MyNumber.class));
         assertThat(MAPPER.writeValueAsString(myNumber)).isEqualTo(expected);
+    }
+    
+    @Test
+    public void deserializesFromJSON() throws Exception {
+        final MyNumber myNumber = new MyNumber(NUMBER);
+        assertThat(
+            MAPPER.readValue(fixture(DEC_NUM_JSON), MyNumber.class).getNumber()
+        ).isEqualTo(myNumber.getNumber());
     }
 }

@@ -1,6 +1,8 @@
 Assumptions
 
-1. Input numbers are integers within Java int data type (-2,147,483,648 to 2,147,483,647)
+1. While my input numbers can be float numbers within the Java double data type
+   limits, I'm assuming they wong't be bigger than Java int data type limits 
+   (-2,147,483,648 to 2,147,483,647)
 
 
 Decisions
@@ -11,6 +13,7 @@ Decisions
 3. Output will be a JSON object
 4. API will be a standard REST API
 5. Not a lot of work on the error handling and validations
+6. I did not validated the upper limit for input numbers
 
 
 Notes & References
@@ -28,11 +31,15 @@ Notes & References
 7. API should be documented using a standard API documentation (like OpenAPI 3.0)
 8. I included an exported simple Postman collection (v2.0) for testing endpoints 
    locally. It's in /extras folder.
+9. Some more strict validations should be added for API input parameters
+   (for example the max number allowed). Found ways to do this but did not feel
+   confident enough to try it out given the time constrains and my lack of 
+   experience with Java (and Java libraries).
 
-Running instructions
+
+Building and running the application
 
 The application requires Java 1.8+ and Maven 4.0+.
-
 Build the application package with the following command in your cli: 
 
 mvn package
@@ -43,12 +50,12 @@ Run the application with the following cli command:
 java -jar target/crypto-service-1.0-SNAPSHOT.jar server config.yml
 
 
-Testing the application endpoints locally
+Accessing application endpoints locally
 
-To test the application you need to use an application or tool that will allow you to make 
-standard API calls (POST requests) like curl or Postman. All three endpoints will use JSON 
-as the standard input and out format, so a standard 'Content-Type: application/json' is 
-required (and submitted with responses).
+To access the endpoints locally you need to use an application or tool that allows you 
+to make standard API calls (POST requests) like curl or Postman. All three endpoints will 
+use JSON as the standard input and out format, so a standard 'Content-Type: application/json' 
+is required (and submitted with responses).
 
 All endpoints are accessible locally at: http://localhost:8080
 

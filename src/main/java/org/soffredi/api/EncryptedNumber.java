@@ -1,22 +1,26 @@
-package org.soffredi.core;
+package org.soffredi.api;
 
 import javax.validation.constraints.NotNull;
 
-public class InputEncryptedNumber {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class EncryptedNumber {
     @NotNull
     private String encryptedNumber;
 
-    public InputEncryptedNumber() {
+    public EncryptedNumber() {
     }
     
-    public InputEncryptedNumber(String encryptedNumber) {
+    public EncryptedNumber(String encryptedNumber) {
         this.encryptedNumber = encryptedNumber;
     }
 
+    @JsonProperty
     public String getEncryptedNumber() {
         return this.encryptedNumber;
     }
 
+    @JsonProperty
     public void setEncryptedNumber(String encryptedNumber) {
         this.encryptedNumber = encryptedNumber;
     }    

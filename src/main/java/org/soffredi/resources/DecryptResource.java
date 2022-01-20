@@ -9,9 +9,9 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 
-import org.soffredi.api.DecryptedNumber;
+import org.soffredi.api.EncryptedNumber;
+import org.soffredi.api.MyNumber;
 import org.soffredi.core.AES;
-import org.soffredi.core.InputEncryptedNumber;
 
 @Path("/decrypt")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,7 +24,7 @@ public class DecryptResource {
 
     @POST
     @Timed
-    public DecryptedNumber run(@Valid InputEncryptedNumber inputEncryptedNumber)
+    public MyNumber run(@Valid EncryptedNumber inputEncryptedNumber)
             throws WebApplicationException {
             
         try {
@@ -32,7 +32,7 @@ public class DecryptResource {
                 inputEncryptedNumber.getEncryptedNumber(), 
                 encryptionKey
             );
-            return new DecryptedNumber(Double.parseDouble(strNum));
+            return new MyNumber(Double.parseDouble(strNum));
         } catch (Exception e) {
             throw new WebApplicationException("Error decrypting number");
         }
