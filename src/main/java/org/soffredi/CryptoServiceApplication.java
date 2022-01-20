@@ -1,7 +1,9 @@
 package org.soffredi;
 
 import org.soffredi.health.DefaultHealthCheck;
+import org.soffredi.resources.DecryptResource;
 import org.soffredi.resources.PushAndRecalculateResource;
+import org.soffredi.resources.PushRecalculateAndEncryptResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -28,9 +30,14 @@ public class CryptoServiceApplication extends Application<CryptoServiceConfigura
                     final Environment environment) {
         final PushAndRecalculateResource pushAndRecalculateResource = 
                 new PushAndRecalculateResource();
+        final PushRecalculateAndEncryptResource pushRecalculateAndEncryptResource =
+                new PushRecalculateAndEncryptResource();
+        final DecryptResource decryptResource = new DecryptResource();
         final DefaultHealthCheck defaultHealthCheck = new DefaultHealthCheck();
             
         environment.healthChecks().register("default", defaultHealthCheck);
         environment.jersey().register(pushAndRecalculateResource);
+        environment.jersey().register(pushRecalculateAndEncryptResource);
+        environment.jersey().register(decryptResource);
     }
 }

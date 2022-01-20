@@ -8,19 +8,19 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 
-import org.soffredi.api.AvgAndDev;
+import org.soffredi.api.EncryptedAvgAndDev;
 import org.soffredi.core.Calculator;
 import org.soffredi.core.InputNumber;
 
-@Path("/push-and-recalculate")
+@Path("/push-recalculate-and-encrypt")
 @Produces(MediaType.APPLICATION_JSON)
-public class PushAndRecalculateResource {
+public class PushRecalculateAndEncryptResource {
 
     @POST
     @Timed
-    public AvgAndDev pushAndRecalculate(@Valid InputNumber inputNumber) {
+    public EncryptedAvgAndDev push(@Valid InputNumber inputNumber) {
         final Calculator cal = Calculator.getInstance();
         cal.push(inputNumber.getNumber());
-        return new AvgAndDev(cal.getMean(), cal.getStdDev());
+        return new EncryptedAvgAndDev(cal.getMean(), cal.getStdDev());
     }
 }
