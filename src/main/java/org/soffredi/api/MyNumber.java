@@ -2,13 +2,13 @@ package org.soffredi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class DecryptedNumber {
+public class MyNumber {
     private double number;
 
-    public DecryptedNumber() {
+    public MyNumber() {
     }
 
-    public DecryptedNumber(double number) {
+    public MyNumber(double number) {
         this.number = number;
     }
 

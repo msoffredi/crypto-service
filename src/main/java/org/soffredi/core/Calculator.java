@@ -31,7 +31,7 @@ public class Calculator {
         return Math.sqrt(getVariance());
     }
 
-    public void push(int num) {
+    public void push(double num) {
         count++;
         final double delta = num - mean;
         mean = mean + delta / count;

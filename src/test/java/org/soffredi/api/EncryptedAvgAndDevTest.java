@@ -11,7 +11,7 @@ import io.dropwizard.jackson.Jackson;
 
 public class EncryptedAvgAndDevTest {
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
-    private static final String AVG_AND_DEV_JSON = "fixtures/encryptedAvgAndDev.json";
+    private static final String ENC_AVG_DEV_JSON = "fixtures/encryptedAvgAndDev.json";
 
     // Mocked data since we are not testing encryption here, only representation
     private static final String AVG = "Encrypted_Avg";
@@ -23,7 +23,7 @@ public class EncryptedAvgAndDevTest {
             new EncryptedAvgAndDev(AVG, STD_DEV);
         final String expected = 
             MAPPER.writeValueAsString(
-                MAPPER.readValue(fixture(AVG_AND_DEV_JSON), EncryptedAvgAndDev.class)
+                MAPPER.readValue(fixture(ENC_AVG_DEV_JSON), EncryptedAvgAndDev.class)
                 );
         assertThat(MAPPER.writeValueAsString(encAvgAndDev)).isEqualTo(expected);
     }

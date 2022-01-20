@@ -10,9 +10,9 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 
 import org.soffredi.api.EncryptedAvgAndDev;
+import org.soffredi.api.MyNumber;
 import org.soffredi.core.AES;
 import org.soffredi.core.Calculator;
-import org.soffredi.core.InputNumber;
 
 @Path("/push-recalculate-and-encrypt")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,7 +25,7 @@ public class PushRecalculateAndEncryptResource {
 
     @POST
     @Timed
-    public EncryptedAvgAndDev push(@Valid InputNumber inputNumber)
+    public EncryptedAvgAndDev push(@Valid MyNumber inputNumber)
             throws WebApplicationException {
             
         final Calculator cal = Calculator.getInstance();
