@@ -7,8 +7,6 @@ public class AvgAndDev {
     private double dev;
 
     public AvgAndDev() {
-        avg = 0;
-        dev = 0;
     }
 
     public AvgAndDev(double avg, double dev) {

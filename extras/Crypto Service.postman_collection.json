@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "0aab66ae-441f-4907-a84f-9e64642f680f",
+		"name": "Crypto Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PushAndRecalculate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/push-and-recalculate"
+			},
+			"response": []
+		},
+		{
+			"name": "PushRecalculateAndEncrypt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\": 4\n}"
+				},
+				"url": "http://localhost:8080/push-recalculate-and-encrypt"
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"encryptedNumber\": \"UYDrMGvmPqfTwH/o3BK9Rg==\"\n}"
+				},
+				"url": "http://localhost:8080/decrypt"
+			},
+			"response": []
+		}
+	]
+}

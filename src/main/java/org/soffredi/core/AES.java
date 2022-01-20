@@ -34,20 +34,6 @@ public class AES {
         secretKey = new SecretKeySpec(key, "AES");
     }
  
-    /**
-     * Encrypts using AES
-     * 
-     * @param strToEncrypt
-     * @param secret
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
-     * @throws NoSuchPaddingException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
-     * @throws UnsupportedEncodingException
-     * @throws IllegalBlockSizeException
-     */
     public static String encrypt(
         String strToEncrypt,
         String secret
