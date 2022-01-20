@@ -6,7 +6,6 @@ import org.soffredi.resources.PushAndRecalculateResource;
 import org.soffredi.resources.PushRecalculateAndEncryptResource;
 
 import io.dropwizard.Application;
-import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class CryptoServiceApplication extends Application<CryptoServiceConfiguration> {
@@ -21,18 +20,14 @@ public class CryptoServiceApplication extends Application<CryptoServiceConfigura
     }
 
     @Override
-    public void initialize(final Bootstrap<CryptoServiceConfiguration> bootstrap) {
-        // TODO: application initialization
-    }
-
-    @Override
     public void run(final CryptoServiceConfiguration configuration,
                     final Environment environment) {
         final PushAndRecalculateResource pushAndRecalculateResource = 
                 new PushAndRecalculateResource();
         final PushRecalculateAndEncryptResource pushRecalculateAndEncryptResource =
-                new PushRecalculateAndEncryptResource();
-        final DecryptResource decryptResource = new DecryptResource();
+                new PushRecalculateAndEncryptResource(configuration.getEncryptionKey());
+        final DecryptResource decryptResource = 
+                new DecryptResource(configuration.getEncryptionKey());
         final DefaultHealthCheck defaultHealthCheck = new DefaultHealthCheck();
             
         environment.healthChecks().register("default", defaultHealthCheck);

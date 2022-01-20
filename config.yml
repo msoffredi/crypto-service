@@ -1,4 +1,6 @@
+encryptionKey: 'abc123'
+
 logging:
-  level: INFO
-  loggers:
-    org.soffredi: DEBUG
+    level: INFO
+    loggers:
+        org.soffredi: DEBUG

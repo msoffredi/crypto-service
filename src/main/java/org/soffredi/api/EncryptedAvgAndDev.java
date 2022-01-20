@@ -7,12 +7,11 @@ import org.soffredi.core.AES;
 public class EncryptedAvgAndDev {
     private String encryptedAvg;
     private String encryptedStdDev;
-    private final String key = "abc123";
 
     public EncryptedAvgAndDev() {
     }
 
-    public EncryptedAvgAndDev(double avg, double stdDev) {
+    public EncryptedAvgAndDev(double avg, double stdDev, String key) {
         try {
             this.encryptedAvg = AES.encrypt(Double.toString(avg), key);
         } catch (Exception e) {

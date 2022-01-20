@@ -15,12 +15,17 @@ import org.soffredi.core.InputNumber;
 @Path("/push-recalculate-and-encrypt")
 @Produces(MediaType.APPLICATION_JSON)
 public class PushRecalculateAndEncryptResource {
+    private final String encryptionKey;
+
+    public PushRecalculateAndEncryptResource(String key) {
+        encryptionKey = key;
+    }
 
     @POST
     @Timed
     public EncryptedAvgAndDev push(@Valid InputNumber inputNumber) {
         final Calculator cal = Calculator.getInstance();
         cal.push(inputNumber.getNumber());
-        return new EncryptedAvgAndDev(cal.getMean(), cal.getStdDev());
+        return new EncryptedAvgAndDev(cal.getMean(), cal.getStdDev(), encryptionKey);
     }
 }

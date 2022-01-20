@@ -16,6 +16,11 @@ import org.soffredi.core.InputEncryptedNumber;
 @Path("/decrypt")
 @Produces(MediaType.APPLICATION_JSON)
 public class DecryptResource {
+    private final String encryptionKey;
+
+    public DecryptResource(String key) {
+        encryptionKey = key;
+    }
 
     @POST
     @Timed
@@ -25,7 +30,7 @@ public class DecryptResource {
         try {
             final String strNum = AES.decrypt(
                 inputEncryptedNumber.getEncryptedNumber(), 
-                "abc123"
+                encryptionKey
             );
             return new DecryptedNumber(Double.parseDouble(strNum));
         } catch (Exception e) {
