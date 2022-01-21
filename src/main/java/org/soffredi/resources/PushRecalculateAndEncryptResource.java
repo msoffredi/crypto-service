@@ -25,7 +25,7 @@ public class PushRecalculateAndEncryptResource {
 
     @POST
     @Timed
-    public EncryptedAvgAndDev push(@Valid MyNumber inputNumber)
+    public EncryptedAvgAndDev run(@Valid MyNumber inputNumber)
             throws WebApplicationException {
             
         final Calculator cal = Calculator.getInstance();

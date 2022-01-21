@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AvgAndDev {
     private double avg;
-    private double dev;
+    private double stdDev;
 
     public AvgAndDev() {
     }
 
-    public AvgAndDev(double avg, double dev) {
+    public AvgAndDev(double avg, double stdDev) {
         this.avg = avg;
-        this.dev = dev;
+        this.stdDev = stdDev;
     }
 
     @JsonProperty
@@ -20,7 +20,7 @@ public class AvgAndDev {
     }
 
     @JsonProperty
-    public double getDev() {
-        return dev;
+    public double getStdDev() {
+        return stdDev;
     }
 }

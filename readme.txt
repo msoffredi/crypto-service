@@ -76,8 +76,8 @@ curl -X POST http://localhost:8080/push-and-recalculate \
 Output:
 
 {
-    "avg":123.0,
-    "dev":0.0
+    "avg": 123.0,
+    "stdDev": 0.0
 }
 
 

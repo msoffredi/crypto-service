@@ -14,15 +14,14 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * I imported and adapted this class from: 
+ * Imported and adapted from: 
  * https://howtodoinjava.com/java/java-security/java-aes-encryption-example/
  */
 public class AES {
- 
     private static SecretKeySpec secretKey;
     private static byte[] key;
  
-    public static void setKey(
+    private static void setKey(
         String myKey
     ) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 

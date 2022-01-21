@@ -18,7 +18,7 @@ public class PushAndRecalculateResource {
 
     @POST
     @Timed
-    public AvgAndDev pushAndRecalculate(@Valid MyNumber inputNumber) {
+    public AvgAndDev run(@Valid MyNumber inputNumber) {
         final Calculator cal = Calculator.getInstance();
         cal.push(inputNumber.getNumber());
         return new AvgAndDev(cal.getMean(), cal.getStdDev());
