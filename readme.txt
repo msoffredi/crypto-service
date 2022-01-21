@@ -35,6 +35,8 @@ Notes & References
    (for example the max number allowed). Found ways to do this but did not feel
    confident enough to try it out given the time constrains and my lack of 
    experience with Java (and Java libraries).
+10.PushAndRecalculate and PushRecalculateAndEncrypt share some core operation of pushing 
+   and recalculating, and could be extracted for consistency. 
 
 
 Building and running the application
